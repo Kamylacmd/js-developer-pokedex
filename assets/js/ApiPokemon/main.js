@@ -45,26 +45,7 @@ pokemonsCardsOl.addEventListener('click', (event) => {
 function loadPokemonItens(offset, limit){
     pokeApi.getPokemons(offset, limit).then((pokemonList = []) => { 
     pokemonsCardsOl.innerHTML += pokemonList.map((pokemon) =>
-        `
-        <li class="pokemon ${pokemon.type}" onclick="openPokemonDetails(${pokemon.number})">
-            <span class="number">#${pokemon.number}</span>
-            <span class="name">${pokemon.name}</span>
-                
-            <div class="detail">
-                <ol class="types">
-                    ${pokemon.types.map((type) => `<li class="type">${type}</li>`).join('')}
-                </ol>
-
-                <img src="${pokemon.photo}" alt="${pokemon.name}">
-            </div>
-        </li>
-    `).join('')
-
-        // const listItens = [];
-        //     for (let i = 0; i < pokemonList.length; i++) {
-        //         const pokemon = pokemonList[i];
-        //         listItens.push(pokemonCards(pokemon));
-        //     }
+        pokemonCards(pokemon)).join('')
     })
 }
 

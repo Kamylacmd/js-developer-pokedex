@@ -55,16 +55,6 @@ function tableBaseTr(pokedex) {
     `).join('');
 }
 
-function openPokemonDetails(id) {
-    console.log('clicou no pokemon', id);
-
-    pokedexApi.getPokemonDetails(id)
-        .then((pokemon) => {
-
-            renderPokemonDetails(pokemon);
-        });
-}
-
 function renderPokemonDetails(pokemon) {
 
     const card = document.querySelector('#cardPokemonDetails');
