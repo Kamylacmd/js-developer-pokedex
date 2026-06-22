@@ -55,6 +55,14 @@ function tableBaseTr(pokedex) {
     `).join('');
 }
 
+function openPokemonDetails(id) {
+    pokedexApi.getPokemonDetails(id)
+        .then((pokemon) => {
+
+            renderPokemonDetails(pokemon);
+        });
+}
+
 function renderPokemonDetails(pokemon) {
 
     const card = document.querySelector('#cardPokemonDetails');
@@ -99,6 +107,8 @@ close.addEventListener('click', () => {
     const telaEscura = document.querySelector('#tela_escura');
     const cardDetails = document.querySelector('#cardPokemonDetails');
     telaEscura.style.display = 'none';
+    tableBase.style.display = 'none';
+    tableCharacteristics.style.display = 'flex';
 
     cardDetails.removeAttribute('data-aos');
     cardDetails.classList.remove('aos-animate');
